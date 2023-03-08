@@ -14,3 +14,9 @@
     - [My great learninig - constructors in cpp](https://www.mygreatlearning.com/blog/constructor-in-cpp/)
     - [The Cherno - C++ Header Files](https://www.youtube.com/watch?v=9RJTQmK0YPI)
     - [The Cherno - "this" keyword](https://www.youtube.com/watch?v=Z_hPJ_EhceI)
+
+
+### Седмица 3 - канонично представяне на класове
+- Динамична памет в клас - конструктори и деструктори
+- Копиращи конструктори и оператор за присвояване
+- [Задание в час]()
