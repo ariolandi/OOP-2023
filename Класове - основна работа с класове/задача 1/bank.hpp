@@ -6,6 +6,7 @@ const int BANK_ACCOUNTS_COUNT = 20;
 const int INVALID_INDEX = -1;
 
 class Bank {
+    // Разчитаме, че BankAccount има конструктор по подразбиране, за да създадем масив
     BankAccount bank_accounts[20];
     int count;
 
