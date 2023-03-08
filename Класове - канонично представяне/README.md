@@ -25,6 +25,7 @@ class Person {
 public:
     Person(const char* name, const int age) {       // конструктор
         this->name = new char[strlen(name) + 1];    // заделяне на динамичната памет
+        strcpy(this->name, name);
         this->age = age;
     }
 
@@ -50,11 +51,13 @@ class Person {
 public:
     Person(const char* name, const int age) {            // конструктор
         this->name = new char[strlen(name) + 1];         // заделяне на динамичната памет
+        strcpy(this->name, name);
         this->age = age;
     }
 
     Person(const Person& other) {                        // Копиращ конструктор
         this->name = new char[strlen(othe.name) + 1];    // заделяне на динамичната памет
+        strcpy(this->name, other.name);
         this->age = other.age;
     }
 
@@ -80,6 +83,7 @@ class Person {
 
     void create(const char* name, const int age) {       // помощна функция за създаване на обект
         this->name = new char[strlen(name) + 1];         // заделяне на динамичната памет
+        strcpy(this->name, name);
         this->age = age;
     }
 
