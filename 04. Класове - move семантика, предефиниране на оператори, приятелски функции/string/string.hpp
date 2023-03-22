@@ -1,19 +1,23 @@
 #ifndef _STRING_
 #define _STRING_
 #include <cstring>
+#include <utility>                          // std::move
 
 class String {
     char *str;
 
     void create(const char*);
     void copy(const String&);
+    void copy(String&&);
     void delete_str();
 
     String add_str(const char*) const;
 public:
     String(const char*);
     String(const String&);
+    String(String&&);
     String& operator=(const String&);
+    String& operator=(String&&);
     ~String();
 
     const char* get() const { return str; }
@@ -39,6 +43,10 @@ String::String(const String& other) {
     copy(other);
 }
 
+String::String(String&& other) {
+    copy(std::move(other));
+}
+
 String& String::operator=(const String& other) {
     if (this != &other) {                   // проверка дали случайно не сме подали същия обект
         delete_str();
@@ -46,6 +54,15 @@ String& String::operator=(const String& other) {
     }
 
     return *this;                           // връщане на референция към текущия обект
+}
+
+String& String::operator=(String&& other) {
+     if (this != &other) {                   // проверка дали случайно не сме подали същия обект
+        delete_str();
+        copy(std::move(other));
+    }
+
+    return *this;
 }
 
 char& String::operator[](const int index) {
@@ -87,6 +104,11 @@ void String::create(const char* str) {
 
 void String::copy(const String& other) {
     create(other.str);
+}
+
+void String::copy(String&& other) {
+    this->str = other.str;
+    other.str = nullptr;
 }
 
 void String::delete_str() {
