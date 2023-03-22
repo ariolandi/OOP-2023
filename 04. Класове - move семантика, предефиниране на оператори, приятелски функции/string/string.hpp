@@ -18,6 +18,7 @@ public:
     String(String&&);
     String& operator=(const String&);
     String& operator=(String&&);
+    String& operator=(const char*);
     ~String();
 
     const char* get() const { return str; }
@@ -44,7 +45,7 @@ String::String(const String& other) {
 }
 
 String::String(String&& other) {
-    copy(std::move(other));
+    copy(std::move(other));                 // разглеждаме other като временен обект
 }
 
 String& String::operator=(const String& other) {
@@ -63,6 +64,10 @@ String& String::operator=(String&& other) {
     }
 
     return *this;
+}
+
+String& String::operator=(const char* other) {
+    return operator=(String(other));
 }
 
 char& String::operator[](const int index) {
@@ -107,8 +112,8 @@ void String::copy(const String& other) {
 }
 
 void String::copy(String&& other) {
-    this->str = other.str;
-    other.str = nullptr;
+    this->str = other.str;              // прехвърляме собствеността на паметта
+    other.str = nullptr;                // пренасочваме указателя от other към друг адрес (nullptr)
 }
 
 void String::delete_str() {

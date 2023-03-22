@@ -8,6 +8,7 @@ class Student {
 
     void set_name(const char*);
     void delete_name();
+    void copy(const Student&);
     void copy(Student&&);
 
 public:
@@ -20,6 +21,7 @@ public:
     Student& operator=(Student&&);
 
     const char* get_name() const { return name; }
+    const int get_fn() const { return fn; }
 };
 
 
@@ -35,6 +37,11 @@ void Student::delete_name() {
     if (name) delete[] name;
 }
 
+void Student::copy(const Student& other) {
+    this->fn = other.fn;
+    set_name(other.name);
+}
+
 void Student::copy(Student&& other) {
     this->name = other.name;
     this->fn = other.fn;
@@ -42,15 +49,12 @@ void Student::copy(Student&& other) {
     other.name = nullptr;
 }
 
-
-
 Student::Student(const char* name = nullptr, const int fn = 0): fn(fn) {
     set_name(name);
 }
 
 Student::Student(const Student& other) {
-    this->fn = other.fn;
-    set_name(other.name);
+    copy(other);
 }
 
 Student::~Student() {
@@ -60,8 +64,7 @@ Student::~Student() {
 Student& Student::operator=(const Student& other) {
     if (this != &other) {
         delete_name();
-        set_name(other.name);
-        this->fn = other.fn;
+        copy(other);
     }
 
     return *this;
