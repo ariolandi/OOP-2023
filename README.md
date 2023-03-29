@@ -32,10 +32,20 @@
 - Предефиниране на оператори (част 2) - инфиксни, префиксни, постфиксни
 - Приятелски функции и класове
 - [Задание в час](https://classroom.github.com/a/zU7x7DlF)
+- Допълнителни материали:
+    - [CProgramming - Rvalues and Move Semantics](https://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html)
+    - [The Cherno - Move Semantics](https://www.youtube.com/watch?v=ehMg6zvXuMY)
+    - [The Cherno - std::move and the Move Assignment Operator](https://www.youtube.com/watch?v=OWNeCTd7yQE)
 
 
 ### Седмица 5 - потоци и файлове
 - Входно-изходни потоци
 - Предефиниране на оператори за вход и изход
-- Работа с файлове
+- Работа с текстови файлове
 - [Задание в час](https://classroom.github.com/a/PLMRuwCQ)
+
+
+### Седмица 6 - потоци и файлове, част 2
+- Работа с двоични файлове
+- read/white
+- [Задание в час](https://classroom.github.com/a/5T0RRVs2)
