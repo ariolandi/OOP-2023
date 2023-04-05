@@ -47,5 +47,9 @@
 
 ### Седмица 6 - потоци и файлове, част 2
 - Работа с двоични файлове
-- read/white
+- read/write
 - [Задание в час](https://classroom.github.com/a/5T0RRVs2)
+
+
+### Седмица 7 - подготовка за първо контролно
+- [Задание в час](https://classroom.github.com/a/nW0jlkhT)
