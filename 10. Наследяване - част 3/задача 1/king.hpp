@@ -4,20 +4,23 @@
 
 class King: public Piece {
 protected:
-    virtual bool can_move(const ChessSquare&) const;
+    virtual bool can_move(const Coordinates&) const;
 
 public:
-    King(const int, const int, const Color);
+    King(const Coordinates&, const Color);
 
     virtual Piece* clone() const;
 };
 
-bool King::can_move(const ChessSquare& other) const {
-    ChessSquare curr(this->x, this->y);
-    return (curr.one_offset(other) && (curr.same_row(other) || curr.same_column(other) || curr.diagonal(other)));
+bool King::can_move(const Coordinates& position) const {
+    return (this->position.one_offset(position) && 
+            (this->position.same_row(position) || 
+             this->position.same_column(position) || 
+             this->position.diagonal(position))
+            );
 }
 
-King::King(const int x, const int y, const Color color): Piece(x, y, color) {}
+King::King(const Coordinates& position, const Color color): Piece(position, color) {}
 
 
 Piece* King::clone() const {

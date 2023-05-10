@@ -4,20 +4,19 @@
 
 class Bishop: public Piece {
 protected:
-    virtual bool can_move(const ChessSquare&) const;
+    virtual bool can_move(const Coordinates&) const;
 
 public:
-    Bishop(const int, const int, const Color);
+    Bishop(const Coordinates&, const Color);
 
     virtual Piece* clone() const;
 };
 
-bool Bishop::can_move(const ChessSquare& other) const {
-    ChessSquare curr(this->x, this->y);
-    return curr.diagonal(other);
+bool Bishop::can_move(const Coordinates& position) const {
+    return this->position.diagonal(position);
 }
 
-Bishop::Bishop(const int x, const int y, const Color color): Piece(x, y, color) {}
+Bishop::Bishop(const Coordinates& position, const Color color): Piece(position, color) {}
 
 
 Piece* Bishop::clone() const {

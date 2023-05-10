@@ -5,28 +5,29 @@
 
 class Pawn: public Piece {
 protected:
-    virtual bool can_move(const ChessSquare&) const;
+    virtual bool can_move(const Coordinates&) const;
+    virtual bool can_attack(const Coordinates&) const;
 
 public:
-    Pawn(const int, const int, const Color);
+    Pawn(const Coordinates&, const Color);
     Piece* clone() const;
 };
 
 
-bool Pawn::can_move(const ChessSquare& other) const {
-    ChessSquare curr(this->x, this->y);
+bool Pawn::can_move(const Coordinates& position) const {
+    return (this->position.one_offset(position) && 
+            this->position.forward(position, this->color) && 
+            this->position.same_column(position));
+}
 
-    if (curr.one_offset(other) && curr.forward(other, this->color)) {
-        if (other.has_piece) {
-            return curr.diagonal(other);
-        } 
-        return curr.same_column(other);
-    }
-    return false;
+bool Pawn::can_attack(const Coordinates& position) const {
+    return (this->position.one_offset(position) && 
+            this->position.forward(position, this->color) && 
+            this->position.diagonal(position));
 }
 
 
-Pawn::Pawn(const int x, const int y, const Color color): Piece(x, y, color) {}
+Pawn::Pawn(const Coordinates& Coordinates, const Color color): Piece(Coordinates, color) {}
 
 Piece* Pawn::clone() const {
     return new Pawn(*this);

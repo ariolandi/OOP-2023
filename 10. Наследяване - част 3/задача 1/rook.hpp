@@ -4,20 +4,19 @@
 
 class Rook: public Piece {
 protected:
-    virtual bool can_move(const ChessSquare&) const;
+    virtual bool can_move(const Coordinates&) const;
 
 public:
-    Rook(const int, const int, const Color);
+    Rook(const Coordinates&, const Color);
 
     virtual Piece* clone() const;
 };
 
-bool Rook::can_move(const ChessSquare& other) const {
-    ChessSquare curr(this->x, this->y);
-    return (curr.same_row(other) || curr.same_column(other));
+bool Rook::can_move(const Coordinates& position) const {
+    return (this->position.same_row(position) || this->position.same_column(position));
 }
 
-Rook::Rook(const int x, const int y, const Color color): Piece(x, y, color) {}
+Rook::Rook(const Coordinates& position, const Color color): Piece(position, color) {}
 
 
 Piece* Rook::clone() const {

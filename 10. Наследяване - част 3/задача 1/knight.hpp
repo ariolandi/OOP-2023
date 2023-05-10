@@ -4,22 +4,21 @@
 
 class Knight: public Piece {
 protected:
-    virtual bool can_move(const ChessSquare&) const;
+    virtual bool can_move(const Coordinates&) const;
 
 public:
-    Knight(const int, const int, const Color);
+    Knight(const Coordinates& , const Color);
 
     virtual bool can_skip() const;
 
     virtual Piece* clone() const;
 };
 
-bool Knight::can_move(const ChessSquare& other) const {
-    ChessSquare curr(this->x, this->y);
-    return curr.knight_move(other);
+bool Knight::can_move(const Coordinates& position) const {
+    return this->position.knight_move(position);
 }
 
-Knight::Knight(const int x, const int y, const Color color): Piece(x, y, color) {}
+Knight::Knight(const Coordinates&  position, const Color color): Piece(position, color) {}
 
 bool Knight::can_skip() const {
     return true;
