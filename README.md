@@ -88,5 +88,10 @@
 - Подготовка за архитектурно контролно
 - [Задание в час](https://classroom.github.com/a/HFaecrG0)
 
+
 ### Седмица 14 - преговор
 - [Задание в час](https://classroom.github.com/a/yNyqCWNS)
+
+
+### Седмица 15 - преговор
+- [Задание в час](https://classroom.github.com/a/76wTW5Lv)
